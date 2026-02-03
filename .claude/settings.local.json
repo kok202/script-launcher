@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(convert:*)",
+      "Bash(ls:*)",
+      "Bash(magick tray-iconTemplate@2x.png -channel alpha -separate info:)",
+      "Bash(magick:*)",
+      "Bash(npx --yes sharp-cli:*)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}

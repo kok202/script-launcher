@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    @apply font-sans text-sm antialiased;
+    background: transparent;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--text-hint);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-hint) transparent;
+  }
+}
+
+@layer components {
+  /* Dark theme (default) */
+  .theme-dark {
+    --bg-primary: rgba(28, 28, 30, 0.96);
+    --bg-secondary: rgba(44, 44, 46, 0.9);
+    --bg-hover: rgba(58, 58, 60, 0.9);
+    --bg-selected: rgba(10, 132, 255, 0.25);
+    --text-primary: #ffffff;
+    --text-secondary: #98989d;
+    --text-hint: #636366;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Light theme */
+  .theme-light {
+    --bg-primary: rgba(255, 255, 255, 0.96);
+    --bg-secondary: rgba(242, 242, 247, 0.95);
+    --bg-hover: rgba(229, 229, 234, 0.9);
+    --bg-selected: rgba(10, 132, 255, 0.15);
+    --text-primary: #1c1c1e;
+    --text-secondary: #636366;
+    --text-hint: #98989d;
+    --border: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-150;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  .btn:hover {
+    background: var(--bg-hover);
+    border-color: theme('colors.accent.DEFAULT');
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white border-accent;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent-hover border-accent-hover;
+  }
+
+  .btn-small {
+    @apply px-2 py-1 text-[11px];
+  }
+
+  .btn-icon {
+    @apply p-1;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply w-full px-2 py-1.5 rounded text-xs transition-colors duration-150 outline-none;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  .input:focus {
+    border-color: theme('colors.accent.DEFAULT');
+  }
+
+  .input::placeholder {
+    color: var(--text-hint);
+  }
+
+  .input-sm {
+    @apply px-1.5 py-1 text-[11px];
+  }
+
+  /* Code textarea */
+  .code-textarea {
+    @apply font-mono text-xs leading-relaxed resize-y min-h-[150px];
+    tab-size: 2;
+  }
+
+  /* Action button */
+  .action-btn {
+    @apply flex items-center justify-center p-1 rounded cursor-pointer transition-all duration-100;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+  }
+
+  .action-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+  }
+
+  .action-btn.danger:hover {
+    @apply text-danger;
+  }
+}

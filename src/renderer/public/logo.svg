@@ -1,0 +1,34 @@
+<svg width="128" height="128" viewBox="0 0 128 128"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <mask id="cutout">
+      <rect width="128" height="128" fill="white"/>
+
+      <!-- smaller play cutout -->
+      <path d="
+        M56 50
+        Q56 47 60 49
+        L82 64
+        Q86 66 82 68
+        L60 83
+        Q56 85 56 81
+        Z"
+        fill="black"
+      />
+    </mask>
+  </defs>
+
+  <!-- Filled folder with negative play -->
+  <path d="
+    M18 36
+    H52
+    L62 26
+    H110
+    V102
+    H18
+    Z"
+    fill="currentColor"
+    mask="url(#cutout)"
+  />
+</svg>
